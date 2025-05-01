@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace mvc_practice.Models
+namespace mvc_practice.Interfaces
 {
-    public class ContextDB
+    public interface PatientI
     {
         
     }

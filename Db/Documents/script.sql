@@ -13,7 +13,7 @@ CREATE TABLE person_information(
     firstname VARCHAR(10) NOT NULL,
     surname VARCHAR(10) NOT NULL,
     date_of_birth DATE NOT NULL,
-    dui CHAR(8),
+    dui CHAR(10),
     phone_number CHAR(14) NOT NULL,
     email VARCHAR NOT NULL UNIQUE
 );
@@ -70,7 +70,7 @@ CREATE TABLE appointment(
     id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
     appointment_date DATE NOT NULL,
     reasons VARCHAR(200) NOT NULL,
-    doctor_id UNIQUEIDENTIFIER NOT NULL,
+    doctor_id UNIQUEIDENTIFIER NOT NULL, 
     patient_id UNIQUEIDENTIFIER NOT NULL,
     CONSTRAINT FK_DOCTOR_APPOIMENT FOREIGN KEY ( doctor_id ) REFERENCES doctor( id ),
     CONSTRAINT FK_PATIENT_ID FOREIGN KEY( patient_id ) REFERENCES patient( id )
