@@ -1,7 +1,7 @@
 using mvc_practice.Schemas;
 using mvc_practice.Models;
 
-namespace mvc_practice.Services
+namespace mvc_practice.Interfaces
 {
     public interface UserI
     {

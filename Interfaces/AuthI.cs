@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using mvc_practice.Schemas;
 
 namespace mvc_practice.Interfaces
 {
     public interface AuthI
     {
-        
+        public bool login( LoginDTOs informationLogin);
     }
 }
