@@ -4,7 +4,7 @@ using mvc_practice.Schemas;
 
 namespace mvc_practice.Services
 {
-    public class UserDAL : UserI
+    public class UserDAL : IUserDAL
     {
         public bool create(CreateUserDTOs user)
         {

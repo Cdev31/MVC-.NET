@@ -21,6 +21,9 @@ namespace mvc_practice.Models
 
         [ForeignKey("patient_id")]
         public PatientModel patientId { get; set; }
+
+        
+        public string state { get; set; }
         
     }
 }

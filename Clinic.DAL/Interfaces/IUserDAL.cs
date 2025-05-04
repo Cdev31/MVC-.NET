@@ -3,7 +3,7 @@ using mvc_practice.Models;
 
 namespace mvc_practice.Interfaces
 {
-    public interface UserI
+    public interface IUserDAL
     {
         public UserModel findByEmail( findByEmailUserDTOs email );
 

@@ -72,6 +72,7 @@ CREATE TABLE appointment(
     reasons VARCHAR(200) NOT NULL,
     doctor_id UNIQUEIDENTIFIER NOT NULL, 
     patient_id UNIQUEIDENTIFIER NOT NULL,
+    [state] VARCHAR(30) CHECK ( [state] IN ("Cancelada", "Agendada", "Terminada") )
     CONSTRAINT FK_DOCTOR_APPOIMENT FOREIGN KEY ( doctor_id ) REFERENCES doctor( id ),
     CONSTRAINT FK_PATIENT_ID FOREIGN KEY( patient_id ) REFERENCES patient( id )
 );

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace mvc_practice.Interfaces
 {
-    public interface RoleI
+    public interface IRoleDAL
     {
         
     }
