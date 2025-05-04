@@ -64,7 +64,7 @@ namespace mvc_practice.Schemas
         public Guid Id { get; set; }
     }
 
-    public class findByEmailUserDTOs {
+    public class FindByEmailUserDTOs {
 
         [Required(ErrorMessage = "email required")]
         [EmailAddress( ErrorMessage = "Invalid format")]

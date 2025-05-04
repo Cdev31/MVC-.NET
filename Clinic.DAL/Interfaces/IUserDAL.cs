@@ -5,7 +5,7 @@ namespace mvc_practice.Interfaces
 {
     public interface IUserDAL
     {
-        public UserModel findByEmail( findByEmailUserDTOs email );
+        public UserModel findByEmail( FindByEmailUserDTOs email );
 
         public List<UserModel> findAll();
 

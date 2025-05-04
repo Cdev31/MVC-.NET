@@ -15,5 +15,8 @@ namespace mvc_practice.Models
         public string roleName { get; set; }
 
         public string description { get; set; }
+
+        [Column("is_active")]
+        public bool isActive { get; set; }
     }
 }
