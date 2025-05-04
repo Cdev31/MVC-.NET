@@ -1,7 +1,7 @@
 
 namespace mvc_practice.Services
 {
-    public class AuthService
+    public class AuthDAL
     {
         
     }
