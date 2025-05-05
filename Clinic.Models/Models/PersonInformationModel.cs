@@ -21,6 +21,9 @@ namespace mvc_practice.Models
 
         public string gender { get; set; }
 
+        [Column("phone_number")]
+        public string phoneNUmber { get; set; }
+
         [Column("date_of_birth")]
         public DateOnly dateOfBirth { get; set; }
         

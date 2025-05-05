@@ -95,7 +95,7 @@ namespace mvc_practice.Services
                var user = await _contextDB.UserEN
                           .Include( u => u.InformationId)
                           .Include( u => u.RoleId )
-                          .FirstOrDefaultAsync( u => u.InformationId.Id == Id);
+                          .FirstOrDefaultAsync( u => u.Id == Id);
 
                return ( user == null ) ? new UserModel() : user;              
             }

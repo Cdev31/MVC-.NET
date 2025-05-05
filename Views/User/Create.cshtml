@@ -1,10 +1,9 @@
-@page
-@model mvc_practice.Models.UserModel
+@model mvc_practice.Clinic.DTOs.CreateUserDTOs
 
 <div class="flex flex-col p-1  w-full">
     <h2 class="bg-orange-700 rounded-md p-1 text-white font-bold text-center m-2 text-xl">Informacion de Usuario</h2>
 
-    <form action="">
+    <form class="flex flex-col gap-2" asp-controller="User" asp-action="Create" method="post" enctype="multipart/form-data">
         <div class="flex flex-col">
             <label
              class="text-md font-semibold text-orange-600 bg-white relative top-3 left-2 w-max"
@@ -13,7 +12,34 @@
              class="focus:outline-none border-solid border-2 border-orange-600 p-1 bg-white h-12
               rounded-md "
               type="text"/>
+             <span asp-validation-for="firstname" class="text-red-800 text-sm font-bold"></span>
         </div>
+        <div class="flex flex-col">
+            <label
+             class="text-md font-semibold text-orange-600 bg-white relative top-3 left-2 w-max"
+             >Apellido:</label>
+            <input
+             class="focus:outline-none border-solid border-2 border-orange-600 p-1 bg-white h-12
+              rounded-md "
+              type="text"/>
+        </div>
+        <div class="flex flex-col">
+            <label
+             class="text-md font-semibold text-orange-600 bg-white relative top-3 left-2 w-max"
+             >Dui:</label>
+            <input
+             class="focus:outline-none border-solid border-2 border-orange-600 p-1 bg-white h-12
+              rounded-md "
+              type="text"/>
+        </div>
+        <button type="submit" 
+        class="h-10 text-xl bg-green-700 text-white cursor-pointer rounded-md hover:border-solid font-bold
+        hover: border-2 hover:scale-[1.02] hover:bg-white hover:border-green-700 hover:text-green-700        
+        ">Create</button>
     </form>
     
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

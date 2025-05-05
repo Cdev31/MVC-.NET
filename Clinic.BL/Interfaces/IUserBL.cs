@@ -5,6 +5,8 @@ namespace mvc_practice.Clinic.BL.Interfaces
 {
     public interface IUserBL
     {
+
+        public Task<FindUserOuputDTOs> findUserById( Guid Id);
         public Task<List<FindUserOuputDTOs>> findUsers();
 
         public Task<bool> createUser( CreateUserDTOs data );

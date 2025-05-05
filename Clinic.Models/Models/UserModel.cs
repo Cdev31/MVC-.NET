@@ -20,8 +20,10 @@ namespace mvc_practice.Models
         [Column("is_active")]
         public bool isActive { get; set; }
 
+        [Column("role")]
+        public int role { get; set; }
+
         [ForeignKey("role")]
         public RoleModel RoleId { get; set; }
-        
     }
 }

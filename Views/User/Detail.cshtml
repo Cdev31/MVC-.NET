@@ -1,7 +1,50 @@
-@page
-@model mvc_practice.Models.UserModel
+@model mvc_practice.Clinic.DTOs.FindUserOuputDTOs
 
-
-<div>
-    
+<div class="flex flex-col w-full h-full">
+    <div class="flex flex-col gap-1">
+        <section>
+            <h2 class="text-3xl font-bold">@Model.allName
+                <span class="fotn-bold text-black/90 pl-3">(@Model.role)</span>
+            </h2>
+            @if(Model.isActive == true ){
+             <span class="text-green-600 font-semibold text-lg right-0">Activo</span>    
+            }
+            else{
+                <span class="text-red-600 font-semibold text-lg right-0">Inactivo</span>
+            }  
+        </section>
+        <section class="flex flex-col gap-1">
+            <h3 class="text-3xl font-bold">Informacion relevante</h3>
+            <div class="flex gap-3">
+                <p class="text-base font-medium text-black/90 flex flex-col gap-1">
+                    <span>Email:</span>
+                    <span>Dui:</span>
+                    <span>Fecha de cumpleanos:</span>
+                    <span>Numero de celular:</span>
+                </p>
+                <p class="text-base font-medium text-black/90 flex flex-col gap-1">
+                    <span>@Model.email</span>
+                    <span>@Model.dui</span>
+                    <span>@Model.dateOfBirth</span>
+                    <span>@Model.phoneNumber</span>
+                </p>
+            </div>
+        </section>
+        
+    </div>
+    <div class="flex gap-2">
+        <a 
+          class="cursor-pointer bg-blue-800 text-white font-bold text-xl h-10 hover:scale-[1.02]
+                  rounded-md hover:border-solid hover:border-2 hover:border-blue-800 hover:text-blue-800
+                  hover:bg-white p-1 text-center
+                  "
+        asp-controller="User" asp-action="update" asp-route-id="@Model.Id">Actualizar</a>
+        <a 
+         class="cursor-pointer bg-yellow-500 text-white font-bold text-xl h-10 hover:scale-[1.02]
+                  rounded-md hover:border-solid hover:border-2 hover:border-yellow-500 hover:text-yellow-500
+                  hover:bg-white p-1 text-center
+                  "
+        asp-controller="User" asp-action="update">Activar</a>
+        
+    </div>
 </div>

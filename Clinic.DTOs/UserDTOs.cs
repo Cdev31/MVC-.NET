@@ -80,6 +80,8 @@ namespace mvc_practice.Clinic.DTOs
 
         public string email { get; set; }
 
+        public string phoneNumber { get; set; }
+
         public string gender { get; set; }
 
         public DateOnly dateOfBirth { get; set; }
