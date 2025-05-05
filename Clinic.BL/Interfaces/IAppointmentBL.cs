@@ -1,4 +1,4 @@
-using mvc_practice.Schemas;
+using mvc_practice.Clinic.DTOs;
 
 namespace mvc_practice.Clinic.BL.Interfaces
 {

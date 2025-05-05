@@ -1,4 +1,5 @@
 using mvc_practice.Clinic.IoC;
+using mvc_practice.Clinic.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +23,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+// app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

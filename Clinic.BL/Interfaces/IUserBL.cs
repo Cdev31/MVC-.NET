@@ -1,16 +1,16 @@
 
-using mvc_practice.Schemas;
+using mvc_practice.Clinic.DTOs;
 
 namespace mvc_practice.Clinic.BL.Interfaces
 {
     public interface IUserBL
     {
-        public List<Object> findUsers();
+        public Task<List<FindUserOuputDTOs>> findUsers();
 
-        public bool createUser( CreateUserDTOs data );
+        public Task<bool> createUser( CreateUserDTOs data );
 
-        public bool updateUser( Guid Id , UpdateUserDTOs newData );
+        public Task<bool> updateUser( Guid Id , UpdateUserDTOs newData );
 
-        public Object findUserByEmail( FindByEmailUserDTOs email );
+        public Task<FindUserOuputDTOs> findUserByEmail( FindByEmailUserDTOs email );
     }
 }

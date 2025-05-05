@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace mvc_practice.Schemas
+namespace mvc_practice.Clinic.DTOs
 {
    public class OneOfAttribute: ValidationAttribute {
         private readonly string[] _allowed;

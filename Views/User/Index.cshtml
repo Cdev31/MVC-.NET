@@ -1,28 +1,35 @@
-@page
-@model mvc_practice.Models.UserModel
+
+@model IEnumerable<mvc_practice.Clinic.DTOs.FindUserOuputDTOs>
 
 <div class="flex w-full">
     <div class="flex flex-col gap-1 w-full"> 
         <h2 class="text-xl rounded-md text-center bg-orange-700 text-white font-semibold">Usuarios</h2>
         <ul class="flex flex-col p-1 basis-3/4">
-            <li class="flex flex-col gap-1 p-1 rounded-md border-b-2 border-t-2 border-black/40">
-                <div class="flex gap-1">
-                    <h3 class="text-lg">Juan carlos hernandez</h3>
-                    <span class="text-sm font-bold text-green-500">activo</span>
-                </div>
-                <div class="flex gap-1 text-sm">
-                    <p class="flex flex-col gap-1">
-                        <span>Email:</span>
-                        <span>Numero:</span>
-                        <span>Role:</span>
-                    </p>
-                    <p class="flex flex-col gap-1">
-                        <span>juan@email.com</span>
-                        <span>+503 7823-2322</span>
-                        <span>Administrador</span>
-                    </p>
-                </div>
-            </li>
+             
+                @if( Model != null && Model.Any()){
+                    @foreach(var user in Model ){
+                        <li class="flex flex-col gap-1 p-1 rounded-md border-b-2 border-t-2 border-black/40">
+                        <div class="flex gap-1">
+                            <h3 class="text-lg">@user.allName</h3>
+                            <span class="text-sm font-bold text-green-500">activo</span>
+                        </div>
+                        <div class="flex gap-1 text-sm">
+                            @* <p class="flex flex-col gap-1">
+                                <span>Email:</span>
+                                <span>Numero de dui:</span>
+                                <span>Role:</span>
+                            </p>
+                            <p class="flex flex-col gap-1">
+                                <span>@user.email</span>
+                                <span>@user.dui</span>
+                                <span>@user.role</span>
+                            </p> *@
+                        </div>
+                    </li>
+                    }
+                }else {
+                    <p><Noframes> No hay usuario</Noframes></p>
+                }
         </ul>
     </div>
 
@@ -33,4 +40,4 @@
     hover:scale-[1.02] pt-2 hover:border-2 text-center hover:border-orange-700 hover:text-orange-700 hover:bg-white bottom-28 right-0">
         +
     </a>
-</div>
+</div>    using mvc_practice.Clinic.DTOs;

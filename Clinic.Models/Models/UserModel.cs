@@ -11,12 +11,17 @@ namespace mvc_practice.Models
         [Key]
         [Column("id")]
         public Guid Id { get; set; }
-
-        public PersonInformationModel information { get; set;}
+        
+        [ForeignKey("information")]
+        public PersonInformationModel InformationId { get; set;}
 
         public string password { get; set; }
 
-        public RoleModel role { get; set; }
+        [Column("is_active")]
+        public bool isActive { get; set; }
+
+        [ForeignKey("role")]
+        public RoleModel RoleId { get; set; }
         
     }
 }

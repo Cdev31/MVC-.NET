@@ -1,19 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
 using mvc_practice.Clinic.BL.Interfaces;
+using mvc_practice.Clinic.DTOs;
 
 namespace mvc_practice.Controllers
 {
    public class UserController : Controller
     {
-        readonly IUserBL userBL;
+        readonly IUserBL _userBL;
 
-        public UserController( IUserBL _userBL ){
-            userBL = _userBL;
+        public UserController( IUserBL userBL ){
+            _userBL = userBL;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-
-            return View();
+            List<FindUserOuputDTOs> users = await _userBL.findUsers();
+        
+            return View(users);
         }
 
         [HttpGet("detail")]

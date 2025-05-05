@@ -1,20 +1,19 @@
-using mvc_practice.Schemas;
 using mvc_practice.Models;
 
 namespace mvc_practice.Interfaces
 {
     public interface IUserDAL
     {
-        public UserModel findByEmail( FindByEmailUserDTOs email );
+        public Task<UserModel> findByEmail( string email );
 
-        public List<UserModel> findAll();
+        public Task<List<UserModel>> findAll();
 
-        public bool create(CreateUserDTOs user);
+        public Task<bool> create( UserModel user);
 
-        public bool update( Guid Id, UpdateUserDTOs newInformation );
+        public void update( Guid Id, UserModel newInformation );
 
-        public bool delete( SetIdUserDTOs Id );
+        public void delete( Guid Id );
 
-        public UserModel findById( SetIdUserDTOs Id );
+        public Task<UserModel> findById( Guid Id );
     }
 }

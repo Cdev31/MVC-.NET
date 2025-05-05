@@ -13,6 +13,7 @@ CREATE TABLE person_information(
     firstname VARCHAR(10) NOT NULL,
     surname VARCHAR(10) NOT NULL,
     date_of_birth DATE NOT NULL,
+    gender VARCHAR(10) CHECK ( gender IN ('Masculino', 'Femenino') ) NOT NULL,
     dui CHAR(10),
     phone_number CHAR(14) NOT NULL,
     email VARCHAR NOT NULL UNIQUE
@@ -139,3 +140,49 @@ WHERE
     tc.TABLE_NAME = 'room';
 
 SELECT TABLE_NAME, CHARACTER_MAXIMUM_LENGTH FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '<table name>'
+
+SELECT dp.name AS UserName, dp.type_desc AS UserType, rp.name AS RoleName FROM sys.database_principals dp
+LEFT JOIN sys.database_role_members rm ON dp.principal_id = rm.member_principal_id
+LEFT JOIN sys.database_principals rp ON rm.role_principal_id = rp.principal_id
+WHERE dp.type IN ('S', 'U', 'G') ORDER BY dp.name;
+
+SELECT 
+    dp.name AS UserName,
+    sp.name AS LoginName
+FROM 
+    sys.database_principals dp
+JOIN 
+    sys.server_principals sp ON dp.sid = sp.sid
+WHERE 
+    dp.type IN ('S', 'U', 'G')
+ORDER BY 
+    dp.name;
+
+SELECT 
+    sp.name AS LoginName,
+    db.name AS DatabaseName
+FROM 
+    sys.server_principals sp
+JOIN 
+    sys.database_principals dp ON sp.sid = dp.sid
+JOIN 
+    sys.databases db ON db.owner_sid = dp.sid
+WHERE 
+    sp.type_desc = 'SQL_LOGIN'
+ORDER BY 
+    sp.name, db.name;
+
+SELECT 
+    sp.name AS LoginName,
+    sp.type_desc AS LoginType,
+    r.name AS RoleName
+FROM 
+    sys.server_principals sp
+LEFT JOIN 
+    sys.server_role_members rm ON sp.principal_id = rm.member_principal_id
+LEFT JOIN 
+    sys.server_principals r ON rm.role_principal_id = r.principal_id
+WHERE 
+    sp.type IN ('S', 'U') -- Filtrar solo los logins de SQL
+ORDER BY 
+    sp.name;

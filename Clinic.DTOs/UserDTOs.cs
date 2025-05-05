@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace mvc_practice.Schemas
+namespace mvc_practice.Clinic.DTOs
 {
     public class CreateUserDTOs
     {
@@ -69,5 +69,24 @@ namespace mvc_practice.Schemas
         [Required(ErrorMessage = "email required")]
         [EmailAddress( ErrorMessage = "Invalid format")]
         public string email { get; set; }
+    }
+
+    public class FindUserOuputDTOs{
+        public Guid? Id { get; set; }
+
+        public string allName { get; set; }
+
+       public string dui { get; set; }
+
+        public string email { get; set; }
+
+        public string gender { get; set; }
+
+        public DateOnly dateOfBirth { get; set; }
+
+        public bool isActive { get; set; }
+
+        public string role { get; set; }
+
     }
 }
